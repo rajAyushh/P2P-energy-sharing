@@ -6,7 +6,7 @@ const uri =
 
 const client = new MongoClient(uri);
 
-async function run() {
+async function connectDB() {
   try {
     const database = client.db("sample_mflix");
     const movies = database.collection("movies");
@@ -21,5 +21,5 @@ async function run() {
     await client.close();
   }
 }
-run().catch(console.dir);
+connectDB().catch(console.dir);
 module.exports = connectDB;

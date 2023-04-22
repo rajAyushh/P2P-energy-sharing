@@ -12,6 +12,8 @@ app.post("/h", (req, res) => {
   res.send(`Welcome ${name}`);
 });
 
+app.use("/", require("./router"));
+
 app.get("/", (req, res) => {
   res.status(200);
   res.send("Welcome to root URL of Server");
@@ -21,6 +23,7 @@ app.get("/hello", (req, res) => {
   res.set("Content-Type", "text/html");
   res.status(200).send("<h1>Hello GFG Learner!</h1>");
 });
+
 app.listen(PORT, (error) =>{
 	if(!error)
 		console.log("Server is Successfully Running,and App is listening on port "+ PORT)
